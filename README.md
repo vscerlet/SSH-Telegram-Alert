@@ -4,7 +4,7 @@ A lightweight and secure bash script for real-time SSH login monitoring through 
 
 **Why this solution:**
 
-- **Secure PAM integration** - Unlike scripts in `/etc/profile.d/`, this approach cannot be bypassed by attackers using direct shell access[^6_1]
+- **Secure PAM integration** - Unlike scripts in `/etc/profile.d/`, this approach cannot be bypassed by attackers using direct shell access
 - **Zero dependencies** - Only requires bash and curl, no additional packages needed
 - **Instant notifications** - Real-time alerts with server hostname, username, source IP, and timestamp
 - **Production-ready** - Graceful error handling ensures SSH functionality remains unaffected even if notification delivery fails
