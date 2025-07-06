@@ -10,7 +10,7 @@ CHAT_ID=""
 
 USER="$PAM_USER"
 SRC_IP="$PAM_RHOST"
-HOSTNAME="$(hostname -f)"
+HOSTNAME="$(uname -n)"
 WHEN="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 
 read -r -d '' MSG <<EOF
