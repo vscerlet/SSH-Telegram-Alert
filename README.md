@@ -11,49 +11,49 @@ A lightweight and secure bash script for real-time SSH login monitoring through 
 
 Perfect for system administrators, DevOps engineers, and security-conscious users who want to monitor server access without complex monitoring solutions. Simple setup, robust security, maximum reliability.
 
-# 🛠️ Инструкция по установке
+Adding the main script# 🛠️ Installation instructions
 
-## 1. Настройка Telegram бота
+## 1. Setting up the Telegram bot
 
-### Создание бота
+### Creating a bot
 
-1. Напишите [@BotFather](https://t.me/BotFather) в Telegram
-2. Отправьте команду `/newbot`
-3. Следуйте инструкциям для создания бота
-4. Сохраните полученный **TOKEN**
+1. Write [@BotFather](https://t.me/BotFather) in Telegram
+2. Send the command `/newbot`
+3. Follow the instructions to create a bot
+4. Save the **TOKEN** you receive
 
-### Получение Chat ID
+### Obtaining Chat ID
 
-1. Напишите любое сообщение вашему боту
-2. Выполните команду для получения обновлений:
+1. Write any message to your bot
+2. Run the command to receive updates:
 ```bash
-curl "https://api.telegram.org/bot{TOKEN}/getUpdates"
+curl “https://api.telegram.org/bot{TOKEN}/getUpdates”
 ```
 
-3. В ответе найдите значение `chat.id` - это ваш **CHAT_ID**
+3. In the response, find the value `chat.id` — this is your **CHAT_ID**
 
-## 2. Настройка скрипта
+## 2. Configuring the script
 
-Отредактируйте файл `ssh-tg-alert.sh`, заменив пустые значения на ваши:
+Edit the file `ssh-tg-alert.sh`, replacing the empty values with your own:
 
 ```bash
-TOKEN="ваш_токен_бота"
-CHAT_ID="ваш_chat_id"
+TOKEN="your_bot_token"
+CHAT_ID="your_chat_id"
 ```
 
 
-## 3. Установка в систему
+## 3. Installing on the system
 
-Переместите скрипт в системную директорию:
+Move the script to the system directory:
 
 ```bash
 sudo mv ssh-tg-alert.sh /usr/local/sbin/ssh-tg-alert.sh
 ```
 
 
-## 4. Настройка безопасности
+## 4. Security settings
 
-Установите правильные права доступа:
+Set the correct access rights:
 
 ```bash
 sudo chown root:root /usr/local/sbin/ssh-tg-alert.sh
@@ -61,38 +61,38 @@ sudo chmod 500 /usr/local/sbin/ssh-tg-alert.sh
 ```
 
 
-## 5. Настройка PAM
+## 5. PAM settings
 
-Добавьте следующую строку в файл `/etc/pam.d/sshd`:
+Add the following line to the `/etc/pam.d/sshd` file:
 
 ```bash
 session optional pam_exec.so type=open_session seteuid /usr/local/sbin/ssh-tg-alert.sh
 ```
 
-**Рекомендация:** Добавьте строку в конец файла, после других `session` директив.
+**Recommendation:** Add the line to the end of the file, after the other `session` directives.
 
-## 6. Перезапуск SSH сервера
+## 6. Restarting the SSH server
 
-### Для систем с systemctl:
+### For systems with systemctl:
 
 ```bash
 sudo systemctl restart sshd
-# или
+# or
 sudo systemctl restart ssh
 ```
 
 
-### Для старых систем Ubuntu/Debian:
+### For older Ubuntu/Debian systems:
 
 ```bash
 sudo service ssh restart
-# или
+# or
 sudo /etc/init.d/ssh restart
 ```
 
 
-## 7. Проверка работы
+## 7. Checking the configuration
 
-Подключитесь к серверу по SSH из другого терминала - вы должны получить уведомление в Telegram.
+Connect to the server via SSH from another terminal — you should receive a notification in Telegram.
 
-⚠️ **Важно:** Протестируйте настройку, не закрывая текущую SSH-сессию, чтобы не заблокировать себе доступ к серверу в случае ошибки конфигурации.
+⚠️ **Important:** Test the configuration without closing the current SSH session so that you don't block your access to the server in case of a configuration error.
