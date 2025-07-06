@@ -11,7 +11,16 @@ A lightweight and secure bash script for real-time SSH login monitoring through 
 
 Perfect for system administrators, DevOps engineers, and security-conscious users who want to monitor server access without complex monitoring solutions. Simple setup, robust security, maximum reliability.
 
-Adding the main script# 🛠️ Installation instructions
+## Requirements
+
+- `curl` - for sending HTTP requests to Telegram API
+- `hostname` - for retrieving server hostname
+- `bash` - script interpreter
+
+Most Linux distributions include these utilities by default.
+
+
+# 🛠️ Installation instructions
 
 ## 1. Setting up the Telegram bot
 
