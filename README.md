@@ -14,7 +14,6 @@ Perfect for system administrators, DevOps engineers, and security-conscious user
 ## Requirements
 
 - `curl` - for sending HTTP requests to Telegram API
-- `hostname` - for retrieving server hostname
 - `bash` - script interpreter
 
 Most Linux distributions include these utilities by default.
