@@ -1,5 +1,15 @@
-# SSH-Telegram-Alert
-A simple bash script for monitoring server logins via PAM. Receive notifications about every SSH connection directly in Telegram.
+**🔐 SSH Telegram Alerts**
+
+A lightweight and secure bash script for real-time SSH login monitoring through Telegram notifications. Get instant alerts whenever someone connects to your server with detailed information about who, when, and from where.
+
+**Why this solution:**
+
+- **Secure PAM integration** - Unlike scripts in `/etc/profile.d/`, this approach cannot be bypassed by attackers using direct shell access[^6_1]
+- **Zero dependencies** - Only requires bash and curl, no additional packages needed
+- **Instant notifications** - Real-time alerts with server hostname, username, source IP, and timestamp
+- **Production-ready** - Graceful error handling ensures SSH functionality remains unaffected even if notification delivery fails
+
+Perfect for system administrators, DevOps engineers, and security-conscious users who want to monitor server access without complex monitoring solutions. Simple setup, robust security, maximum reliability.
 
 # 🛠️ Инструкция по установке
 
